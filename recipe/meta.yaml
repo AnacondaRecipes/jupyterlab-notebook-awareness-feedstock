@@ -1,9 +1,9 @@
-context:
-  version: "0.2.0"
+{% set name = "jupyterlab-notebook-awareness" %}
+{% set version = "0.2.0" %}
 
 package:
-  name: jupyterlab-notebook-awareness
-  version: ${{ version }}
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/j/jupyterlab-notebook-awareness/jupyterlab_notebook_awareness-${{ version }}.tar.gz
