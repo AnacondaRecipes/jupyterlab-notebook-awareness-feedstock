@@ -26,13 +26,14 @@ requirements:
     - python
 
 tests:
-  - python:
-      imports:
-        - jupyterlab_notebook_awareness
-      pip_check: true
-    requirements:
-      run:
-        - python
+  imports:
+    - jupyterlab_notebook_awareness
+  requires:
+    - python
+    - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   homepage: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
