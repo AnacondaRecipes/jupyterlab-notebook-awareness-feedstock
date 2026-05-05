@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/j/jupyterlab-notebook-awareness/jupyterlab_notebook_awareness-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 98ef9e61088bec54cd826a793091b74ea557e69b8b7f9cdc8d8387e0ba60c1be
 
 build:
