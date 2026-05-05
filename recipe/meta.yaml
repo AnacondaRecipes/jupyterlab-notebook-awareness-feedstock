@@ -36,12 +36,13 @@ test:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
-  homepage: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
+  home: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
   summary: "Track current notebook and active cell in JupyterLab's awareness"
+  description: "A JupyterLab extension that tracks a user's current notebook and cell."
   license: BSD-3-Clause
   license_file: LICENSE
-  documentation: https://jupyter-ai.readthedocs.io/
-  repository: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
+  dev_url: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
+  doc_url: https://jupyter-ai.readthedocs.io
 
 extra:
   recipe-maintainers:
