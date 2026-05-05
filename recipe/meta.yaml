@@ -10,20 +10,20 @@ source:
   sha256: 98ef9e61088bec54cd826a793091b74ea557e69b8b7f9cdc8d8387e0ba60c1be
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<39]
   number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python ${{ python_min }}.*
+    - python
     - pip
     - hatchling >=1.5.0
     - jupyterlab >=4.0.0,<5
     - hatch-nodejs-version >=0.3.2
     - hatch-jupyter-builder >=0.5
   run:
-    - python >=${{ python_min }}
+    - python
 
 tests:
   - python:
@@ -32,7 +32,7 @@ tests:
       pip_check: true
     requirements:
       run:
-        - python ${{ python_min }}.*
+        - python
 
 about:
   homepage: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
