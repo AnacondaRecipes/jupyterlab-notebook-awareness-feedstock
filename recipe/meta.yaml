@@ -25,7 +25,7 @@ requirements:
   run:
     - python
 
-tests:
+test:
   imports:
     - jupyterlab_notebook_awareness
   requires:
