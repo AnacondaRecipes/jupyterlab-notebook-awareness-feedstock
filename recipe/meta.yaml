@@ -1,0 +1,53 @@
+{% set name = "jupyterlab-notebook-awareness" %}
+{% set version = "0.2.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-','_') }}-{{ version }}.tar.gz
+  sha256: 98ef9e61088bec54cd826a793091b74ea557e69b8b7f9cdc8d8387e0ba60c1be
+
+build:
+  skip: true  # [py<39]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+
+requirements:
+  host:
+    - python
+    - pip
+    - hatchling >=1.5.0
+    - jupyterlab >=4.0.0,<5
+    - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder >=0.5
+  run:
+    - python
+
+test:
+  imports:
+    - jupyterlab_notebook_awareness
+  requires:
+    - python
+    - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+
+about:
+  home: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
+  summary: "Track current notebook and active cell in JupyterLab's awareness"
+  description: "A JupyterLab extension that tracks a user's current notebook and cell."
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: 
+    - LICENSE
+    - jupyterlab_notebook_awareness/labextension/static/third-party-licenses.json
+  dev_url: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
+  doc_url: https://jupyter-ai.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - dlqqq
+    - andrii-i
