@@ -41,7 +41,9 @@ about:
   description: "A JupyterLab extension that tracks a user's current notebook and cell."
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: 
+    - LICENSE
+    - jupyterlab_notebook_awareness/labextension/static/third-party-licenses.json
   dev_url: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
   doc_url: https://jupyter-ai.readthedocs.io
 
