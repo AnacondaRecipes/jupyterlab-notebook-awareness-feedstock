@@ -35,9 +35,14 @@ test:
   requires:
     - python
     - pip
+    - jupyterlab
+    - sed  # [unix]
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    # make sure that the labextension version patch works correctly
+    - jupyter labextension list 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -q "{{ name }} v{{ version }} enabled OK"  # [unix]
+
 
 about:
   home: https://github.com/jupyter-ai-contrib/jupyterlab-notebook-awareness
