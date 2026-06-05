@@ -8,6 +8,9 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-','_') }}-{{ version }}.tar.gz
   sha256: 98ef9e61088bec54cd826a793091b74ea557e69b8b7f9cdc8d8387e0ba60c1be
+  patches:
+    # patch labextension package.json to report correct version (it's update was omitted by the project)
+    - fix_extension_version.patch
 
 build:
   skip: true  # [py<39]
