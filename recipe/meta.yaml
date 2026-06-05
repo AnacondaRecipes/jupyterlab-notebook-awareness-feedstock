@@ -22,11 +22,12 @@ requirements:
     - python
     - pip
     - hatchling >=1.5.0
-    - jupyterlab >=4.0.0,<5
     - hatch-nodejs-version >=0.3.2
     - hatch-jupyter-builder >=0.5
   run:
     - python
+  run_constrained:
+    - jupyterlab >=4.0.0,<5
 
 test:
   imports:
